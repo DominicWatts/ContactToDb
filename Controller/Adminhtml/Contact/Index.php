@@ -1,11 +1,9 @@
 <?php
 
-
 namespace Xigen\ContactToDb\Controller\Adminhtml\Contact;
 
 class Index extends \Magento\Backend\App\Action
 {
-
     protected $resultPageFactory;
 
     /**
@@ -30,7 +28,7 @@ class Index extends \Magento\Backend\App\Action
     public function execute()
     {
         $resultPage = $this->resultPageFactory->create();
-            $resultPage->getConfig()->getTitle()->prepend(__("Contact"));
-            return $resultPage;
+        $resultPage->getConfig()->getTitle()->prepend(__("Contact"));
+        return $resultPage;
     }
 }

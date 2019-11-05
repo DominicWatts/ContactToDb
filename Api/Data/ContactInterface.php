@@ -1,11 +1,9 @@
 <?php
 
-
 namespace Xigen\ContactToDb\Api\Data;
 
 interface ContactInterface extends \Magento\Framework\Api\ExtensibleDataInterface
 {
-
     const EMAIL = 'email';
     const TELEPHONE = 'telephone';
     const NAME = 'name';
@@ -50,7 +48,7 @@ interface ContactInterface extends \Magento\Framework\Api\ExtensibleDataInterfac
      * @return $this
      */
     public function setExtensionAttributes(
-        \Xigen\ContactToDb\Api\Data\ContactExtensionInterface $extensionAttributes
+        ContactExtensionInterface $extensionAttributes
     );
 
     /**

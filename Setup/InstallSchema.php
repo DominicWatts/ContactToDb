@@ -1,10 +1,9 @@
 <?php
 
-
 namespace Xigen\ContactToDb\Setup;
 
-use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\InstallSchemaInterface;
+use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
 
 class InstallSchema implements InstallSchemaInterface
@@ -23,7 +22,7 @@ class InstallSchema implements InstallSchemaInterface
             'contact_id',
             \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
             null,
-            ['identity' => true,'nullable' => false,'primary' => true,'unsigned' => true,],
+            ['identity' => true, 'nullable' => false, 'primary' => true, 'unsigned' => true, ],
             'Entity ID'
         );
 

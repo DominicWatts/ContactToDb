@@ -1,20 +1,18 @@
 <?php
 
-
 namespace Xigen\ContactToDb\Model;
 
+use Magento\Framework\Api\DataObjectHelper;
 use Xigen\ContactToDb\Api\Data\ContactInterface;
 use Xigen\ContactToDb\Api\Data\ContactInterfaceFactory;
-use Magento\Framework\Api\DataObjectHelper;
 
 class Contact extends \Magento\Framework\Model\AbstractModel
 {
-
     protected $dataObjectHelper;
 
     protected $_eventPrefix = 'xigen_contacttodb_contact';
-    protected $contactDataFactory;
 
+    protected $contactDataFactory;
 
     /**
      * @param \Magento\Framework\Model\Context $context
@@ -30,8 +28,8 @@ class Contact extends \Magento\Framework\Model\AbstractModel
         \Magento\Framework\Registry $registry,
         ContactInterfaceFactory $contactDataFactory,
         DataObjectHelper $dataObjectHelper,
-        \Xigen\ContactToDb\Model\ResourceModel\Contact $resource,
-        \Xigen\ContactToDb\Model\ResourceModel\Contact\Collection $resourceCollection,
+        ResourceModel\Contact $resource,
+        ResourceModel\Contact\Collection $resourceCollection,
         array $data = []
     ) {
         $this->contactDataFactory = $contactDataFactory;

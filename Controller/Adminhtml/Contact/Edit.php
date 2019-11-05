@@ -1,11 +1,9 @@
 <?php
 
-
 namespace Xigen\ContactToDb\Controller\Adminhtml\Contact;
 
 class Edit extends \Xigen\ContactToDb\Controller\Adminhtml\Contact
 {
-
     protected $resultPageFactory;
 
     /**

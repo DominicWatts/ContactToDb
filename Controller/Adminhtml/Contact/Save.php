@@ -1,13 +1,11 @@
 <?php
 
-
 namespace Xigen\ContactToDb\Controller\Adminhtml\Contact;
 
 use Magento\Framework\Exception\LocalizedException;
 
 class Save extends \Magento\Backend\App\Action
 {
-
     protected $dataPersistor;
 
     /**
