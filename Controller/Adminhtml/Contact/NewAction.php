@@ -2,6 +2,9 @@
 
 namespace Xigen\ContactToDb\Controller\Adminhtml\Contact;
 
+/**
+ * NewAction class
+ */
 class NewAction extends \Xigen\ContactToDb\Controller\Adminhtml\Contact
 {
     protected $resultForwardFactory;

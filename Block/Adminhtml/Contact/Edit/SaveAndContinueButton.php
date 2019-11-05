@@ -4,6 +4,9 @@ namespace Xigen\ContactToDb\Block\Adminhtml\Contact\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
+/**
+ * SaveAndContinueButton class
+ */
 class SaveAndContinueButton extends GenericButton implements ButtonProviderInterface
 {
 

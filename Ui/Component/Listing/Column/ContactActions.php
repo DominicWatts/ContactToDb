@@ -2,6 +2,9 @@
 
 namespace Xigen\ContactToDb\Ui\Component\Listing\Column;
 
+/**
+ * ContactActions class
+ */
 class ContactActions extends \Magento\Ui\Component\Listing\Columns\Column
 {
     const URL_PATH_EDIT = 'xigen_contacttodb/contact/edit';

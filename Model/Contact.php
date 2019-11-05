@@ -6,6 +6,9 @@ use Magento\Framework\Api\DataObjectHelper;
 use Xigen\ContactToDb\Api\Data\ContactInterface;
 use Xigen\ContactToDb\Api\Data\ContactInterfaceFactory;
 
+/**
+ * Undocumented class
+ */
 class Contact extends \Magento\Framework\Model\AbstractModel
 {
     protected $dataObjectHelper;

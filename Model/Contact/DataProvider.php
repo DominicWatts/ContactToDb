@@ -5,6 +5,9 @@ namespace Xigen\ContactToDb\Model\Contact;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Xigen\ContactToDb\Model\ResourceModel\Contact\CollectionFactory;
 
+/**
+ * DataProvider class
+ */
 class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
     protected $collection;

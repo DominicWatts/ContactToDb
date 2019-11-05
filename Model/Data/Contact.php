@@ -4,6 +4,9 @@ namespace Xigen\ContactToDb\Model\Data;
 
 use Xigen\ContactToDb\Api\Data\ContactInterface;
 
+/**
+ * Contact class
+ */
 class Contact extends \Magento\Framework\Api\AbstractExtensibleObject implements ContactInterface
 {
 

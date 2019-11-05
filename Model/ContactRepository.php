@@ -17,6 +17,9 @@ use Xigen\ContactToDb\Api\Data\ContactSearchResultsInterfaceFactory;
 use Xigen\ContactToDb\Model\ResourceModel\Contact as ResourceContact;
 use Xigen\ContactToDb\Model\ResourceModel\Contact\CollectionFactory as ContactCollectionFactory;
 
+/**
+ * ContactRepository class
+ */
 class ContactRepository implements ContactRepositoryInterface
 {
     protected $dataObjectHelper;
@@ -94,6 +97,9 @@ class ContactRepository implements ContactRepositoryInterface
         $contactData = $this->extensibleDataObjectConverter->toNestedArray(
             $contact,
             [],
+            /**
+             *  class
+             */
             \Xigen\ContactToDb\Api\Data\ContactInterface::class
         );
         
@@ -133,6 +139,9 @@ class ContactRepository implements ContactRepositoryInterface
         
         $this->extensionAttributesJoinProcessor->process(
             $collection,
+            /**
+             *  class
+             */
             \Xigen\ContactToDb\Api\Data\ContactInterface::class
         );
         

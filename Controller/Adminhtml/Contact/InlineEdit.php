@@ -2,6 +2,9 @@
 
 namespace Xigen\ContactToDb\Controller\Adminhtml\Contact;
 
+/**
+ * InlineEdit class
+ */
 class InlineEdit extends \Magento\Backend\App\Action
 {
     protected $jsonFactory;

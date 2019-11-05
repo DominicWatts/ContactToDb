@@ -4,6 +4,9 @@ namespace Xigen\ContactToDb\Controller\Adminhtml\Contact;
 
 use Magento\Framework\Exception\LocalizedException;
 
+/**
+ * Save class
+ */
 class Save extends \Magento\Backend\App\Action
 {
     protected $dataPersistor;
@@ -33,6 +36,9 @@ class Save extends \Magento\Backend\App\Action
         if ($data) {
             $id = $this->getRequest()->getParam('contact_id');
         
+            /**
+             * -> class
+             */
             $model = $this->_objectManager->create(\Xigen\ContactToDb\Model\Contact::class)->load($id);
             if (!$model->getId() && $id) {
                 $this->messageManager->addErrorMessage(__('This Contact no longer exists.'));

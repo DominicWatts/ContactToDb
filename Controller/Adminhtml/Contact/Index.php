@@ -2,6 +2,9 @@
 
 namespace Xigen\ContactToDb\Controller\Adminhtml\Contact;
 
+/**
+ * Index class
+ */
 class Index extends \Magento\Backend\App\Action
 {
     protected $resultPageFactory;

@@ -2,6 +2,9 @@
 
 namespace Xigen\ContactToDb\Controller\Adminhtml\Contact;
 
+/**
+ * Edit class
+ */
 class Edit extends \Xigen\ContactToDb\Controller\Adminhtml\Contact
 {
     protected $resultPageFactory;
@@ -29,6 +32,9 @@ class Edit extends \Xigen\ContactToDb\Controller\Adminhtml\Contact
     {
         // 1. Get ID and create model
         $id = $this->getRequest()->getParam('contact_id');
+        /**
+         *  class
+         */
         $model = $this->_objectManager->create(\Xigen\ContactToDb\Model\Contact::class);
         
         // 2. Initial checking

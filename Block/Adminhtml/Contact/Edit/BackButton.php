@@ -4,6 +4,9 @@ namespace Xigen\ContactToDb\Block\Adminhtml\Contact\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
+/**
+ * BackButton class
+ */
 class BackButton extends GenericButton implements ButtonProviderInterface
 {
 

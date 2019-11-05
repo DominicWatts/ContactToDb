@@ -2,6 +2,9 @@
 
 namespace Xigen\ContactToDb\Controller\Adminhtml\Contact;
 
+/**
+ * Delete class
+ */
 class Delete extends \Xigen\ContactToDb\Controller\Adminhtml\Contact
 {
 
@@ -19,6 +22,9 @@ class Delete extends \Xigen\ContactToDb\Controller\Adminhtml\Contact
         if ($id) {
             try {
                 // init model and delete
+                /**
+                 *  class
+                 */
                 $model = $this->_objectManager->create(\Xigen\ContactToDb\Model\Contact::class);
                 $model->load($id);
                 $model->delete();
