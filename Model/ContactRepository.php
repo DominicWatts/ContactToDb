@@ -1,26 +1,24 @@
 <?php
 
-
 namespace Xigen\ContactToDb\Model;
 
-use Xigen\ContactToDb\Api\Data\ContactSearchResultsInterfaceFactory;
-use Xigen\ContactToDb\Api\Data\ContactInterfaceFactory;
-use Xigen\ContactToDb\Model\ResourceModel\Contact as ResourceContact;
-use Magento\Framework\Api\ExtensionAttribute\JoinProcessorInterface;
-use Magento\Framework\Exception\CouldNotSaveException;
-use Xigen\ContactToDb\Model\ResourceModel\Contact\CollectionFactory as ContactCollectionFactory;
-use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\Api\DataObjectHelper;
-use Xigen\ContactToDb\Api\ContactRepositoryInterface;
+use Magento\Framework\Api\ExtensibleDataObjectConverter;
+use Magento\Framework\Api\ExtensionAttribute\JoinProcessorInterface;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Exception\CouldNotDeleteException;
-use Magento\Framework\Reflection\DataObjectProcessor;
-use Magento\Framework\Api\ExtensibleDataObjectConverter;
+use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\Reflection\DataObjectProcessor;
+use Magento\Store\Model\StoreManagerInterface;
+use Xigen\ContactToDb\Api\ContactRepositoryInterface;
+use Xigen\ContactToDb\Api\Data\ContactInterfaceFactory;
+use Xigen\ContactToDb\Api\Data\ContactSearchResultsInterfaceFactory;
+use Xigen\ContactToDb\Model\ResourceModel\Contact as ResourceContact;
+use Xigen\ContactToDb\Model\ResourceModel\Contact\CollectionFactory as ContactCollectionFactory;
 
 class ContactRepository implements ContactRepositoryInterface
 {
-
     protected $dataObjectHelper;
 
     private $storeManager;
@@ -34,6 +32,7 @@ class ContactRepository implements ContactRepositoryInterface
     private $collectionProcessor;
 
     protected $extensibleDataObjectConverter;
+
     protected $resource;
 
     protected $dataContactFactory;
@@ -41,7 +40,6 @@ class ContactRepository implements ContactRepositoryInterface
     protected $contactCollectionFactory;
 
     protected $contactFactory;
-
 
     /**
      * @param ResourceContact $resource

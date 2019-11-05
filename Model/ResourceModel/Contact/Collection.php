@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Xigen\ContactToDb\Model\ResourceModel\Contact;
 
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection

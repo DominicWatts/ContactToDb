@@ -1,13 +1,11 @@
 <?php
 
-
 namespace Xigen\ContactToDb\Block\Adminhtml\Contact\Edit;
 
 use Magento\Backend\Block\Widget\Context;
 
 abstract class GenericButton
 {
-
     protected $context;
 
     /**

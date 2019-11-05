@@ -1,11 +1,9 @@
 <?php
 
-
 namespace Xigen\ContactToDb\Controller\Adminhtml\Contact;
 
 class InlineEdit extends \Magento\Backend\App\Action
 {
-
     protected $jsonFactory;
 
     /**

@@ -1,14 +1,13 @@
 <?php
 
-
 namespace Xigen\ContactToDb\Ui\Component\Listing\Column;
 
 class ContactActions extends \Magento\Ui\Component\Listing\Columns\Column
 {
-
     const URL_PATH_EDIT = 'xigen_contacttodb/contact/edit';
     const URL_PATH_DETAILS = 'xigen_contacttodb/contact/details';
     const URL_PATH_DELETE = 'xigen_contacttodb/contact/delete';
+
     protected $urlBuilder;
 
     /**

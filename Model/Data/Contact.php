@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Xigen\ContactToDb\Model\Data;
 
 use Xigen\ContactToDb\Api\Data\ContactInterface;
