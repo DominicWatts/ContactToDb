@@ -7,6 +7,33 @@ namespace Xigen\ContactToDb\Controller\Adminhtml\Contact;
  */
 class Delete extends \Xigen\ContactToDb\Controller\Adminhtml\Contact
 {
+   /**
+    * @var \Magento\Framework\View\Result\PageFactory
+    */
+    private $resultPageFactory;
+
+    /**
+     * @var \Xigen\ContactToDb\Model\ContactFactory
+     */
+    private $contactFactory;
+    
+    /**
+     * Delete constructor.
+     * @param \Magento\Backend\App\Action\Context $context
+     * @param \Magento\Framework\Registry $coreRegistry
+     * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
+     * @param \Xigen\ContactToDb\Model\ContactFactory $contactFactory
+     */
+    public function __construct(
+        \Magento\Backend\App\Action\Context $context,
+        \Magento\Framework\Registry $coreRegistry,
+        \Magento\Framework\View\Result\PageFactory $resultPageFactory,
+        \Xigen\ContactToDb\Model\ContactFactory $contactFactory
+    ) {
+        $this->resultPageFactory = $resultPageFactory;
+        $this->contactFactory = $contactFactory;
+        parent::__construct($context, $coreRegistry);
+    }
 
     /**
      * Delete action
@@ -22,10 +49,7 @@ class Delete extends \Xigen\ContactToDb\Controller\Adminhtml\Contact
         if ($id) {
             try {
                 // init model and delete
-                /**
-                 *  class
-                 */
-                $model = $this->_objectManager->create(\Xigen\ContactToDb\Model\Contact::class);
+                $model = $this->contactFactory->create();
                 $model->load($id);
                 $model->delete();
                 // display success message

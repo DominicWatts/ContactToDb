@@ -11,10 +11,19 @@ use Xigen\ContactToDb\Api\Data\ContactInterfaceFactory;
  */
 class Contact extends \Magento\Framework\Model\AbstractModel
 {
+    /**
+     * @var DataObjectHelper
+     */
     protected $dataObjectHelper;
 
+    /**
+     * @var string
+     */
     protected $_eventPrefix = 'xigen_contacttodb_contact';
 
+    /**
+     * @var ContactInterfaceFactory
+     */
     protected $contactDataFactory;
 
     /**

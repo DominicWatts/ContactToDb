@@ -22,26 +22,59 @@ use Xigen\ContactToDb\Model\ResourceModel\Contact\CollectionFactory as ContactCo
  */
 class ContactRepository implements ContactRepositoryInterface
 {
+    /**
+     * @var DataObjectHelper
+     */
     protected $dataObjectHelper;
 
+    /**
+     * @var StoreManagerInterface
+     */
     private $storeManager;
 
+    /**
+     * @var ContactSearchResultsInterfaceFactory
+     */
     protected $searchResultsFactory;
 
+    /**
+     * @var DataObjectProcessor
+     */
     protected $dataObjectProcessor;
 
+    /**
+     * @var JoinProcessorInterface
+     */
     protected $extensionAttributesJoinProcessor;
 
+    /**
+     * @var CollectionProcessorInterface
+     */
     private $collectionProcessor;
 
+    /**
+     * @var ExtensibleDataObjectConverter
+     */
     protected $extensibleDataObjectConverter;
 
+    /**
+     * @var ResourceContact
+     */
     protected $resource;
 
+    /**
+     * @var ContactInterfaceFactory
+     */
     protected $dataContactFactory;
 
+    /**
+     * @var ContactCollectionFactory
+     */
     protected $contactCollectionFactory;
 
+    /**
+     * @var ContactFactory
+     */
     protected $contactFactory;
 
     /**
@@ -89,17 +122,9 @@ class ContactRepository implements ContactRepositoryInterface
     public function save(
         \Xigen\ContactToDb\Api\Data\ContactInterface $contact
     ) {
-        /* if (empty($contact->getStoreId())) {
-            $storeId = $this->storeManager->getStore()->getId();
-            $contact->setStoreId($storeId);
-        } */
-        
         $contactData = $this->extensibleDataObjectConverter->toNestedArray(
             $contact,
             [],
-            /**
-             *  class
-             */
             \Xigen\ContactToDb\Api\Data\ContactInterface::class
         );
         
@@ -139,9 +164,6 @@ class ContactRepository implements ContactRepositoryInterface
         
         $this->extensionAttributesJoinProcessor->process(
             $collection,
-            /**
-             *  class
-             */
             \Xigen\ContactToDb\Api\Data\ContactInterface::class
         );
         

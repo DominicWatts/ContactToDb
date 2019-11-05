@@ -7,18 +7,29 @@ namespace Xigen\ContactToDb\Controller\Adminhtml\Contact;
  */
 class InlineEdit extends \Magento\Backend\App\Action
 {
+    /**
+     * @var \Magento\Framework\Controller\Result\JsonFactory
+     */
     protected $jsonFactory;
+
+    /**
+     * @var \Xigen\ContactToDb\Model\ContactFactory
+     */
+    private $contactFactory;
 
     /**
      * @param \Magento\Backend\App\Action\Context $context
      * @param \Magento\Framework\Controller\Result\JsonFactory $jsonFactory
+     * @param \Xigen\ContactToDb\Model\ContactFactory $contactFactory
      */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
-        \Magento\Framework\Controller\Result\JsonFactory $jsonFactory
+        \Magento\Framework\Controller\Result\JsonFactory $jsonFactory,
+        \Xigen\ContactToDb\Model\ContactFactory $contactFactory
     ) {
         parent::__construct($context);
         $this->jsonFactory = $jsonFactory;
+        $this->contactFactory = $contactFactory;
     }
 
     /**
@@ -39,14 +50,14 @@ class InlineEdit extends \Magento\Backend\App\Action
                 $messages[] = __('Please correct the data sent.');
                 $error = true;
             } else {
-                foreach (array_keys($postItems) as $modelid) {
+                foreach (array_keys($postItems) as $modelId) {
                     /** @var \Xigen\ContactToDb\Model\Contact $model */
-                    $model = $this->_objectManager->create(\Xigen\ContactToDb\Model\Contact::class)->load($modelid);
+                    $model = $this->contactFactory->create();
                     try {
-                        $model->setData(array_merge($model->getData(), $postItems[$modelid]));
+                        $model->setData($postItems[$modelId] + $model->getData());
                         $model->save();
                     } catch (\Exception $e) {
-                        $messages[] = "[Contact ID: {$modelid}]  {$e->getMessage()}";
+                        $messages[] = "[Contact ID: {$modelId}]  {$e->getMessage()}";
                         $error = true;
                     }
                 }

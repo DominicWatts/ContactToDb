@@ -7,11 +7,13 @@ namespace Xigen\ContactToDb\Controller\Adminhtml\Contact;
  */
 class Index extends \Magento\Backend\App\Action
 {
+    /**
+     * @var \Magento\Framework\View\Result\PageFactory
+     */
     protected $resultPageFactory;
 
     /**
-     * Constructor
-     *
+     * Index constructor.
      * @param \Magento\Backend\App\Action\Context $context
      * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
      */

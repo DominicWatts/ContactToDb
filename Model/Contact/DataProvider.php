@@ -10,10 +10,19 @@ use Xigen\ContactToDb\Model\ResourceModel\Contact\CollectionFactory;
  */
 class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
+    /**
+     * @var CollectionFactory
+     */
     protected $collection;
 
+    /**
+     * @var DataPersistorInterface
+     */
     protected $dataPersistor;
 
+    /**
+     * @var
+     */
     protected $loadedData;
 
     /**

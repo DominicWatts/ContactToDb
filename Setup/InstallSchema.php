@@ -11,7 +11,6 @@ use Magento\Framework\Setup\SchemaSetupInterface;
  */
 class InstallSchema implements InstallSchemaInterface
 {
-
     /**
      * {@inheritdoc}
      */
@@ -19,7 +18,8 @@ class InstallSchema implements InstallSchemaInterface
         SchemaSetupInterface $setup,
         ModuleContextInterface $context
     ) {
-        $table_xigen_contacttodb_contact = $setup->getConnection()->newTable($setup->getTable('xigen_contacttodb_contact'));
+        $table_xigen_contacttodb_contact = $setup->getConnection()
+            ->newTable($setup->getTable('xigen_contacttodb_contact'));
 
         $table_xigen_contacttodb_contact->addColumn(
             'contact_id',

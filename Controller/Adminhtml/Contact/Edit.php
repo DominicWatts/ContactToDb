@@ -7,19 +7,31 @@ namespace Xigen\ContactToDb\Controller\Adminhtml\Contact;
  */
 class Edit extends \Xigen\ContactToDb\Controller\Adminhtml\Contact
 {
+    /**
+     * @var \Magento\Framework\View\Result\PageFactory
+     */
     protected $resultPageFactory;
 
     /**
+     * @var \Xigen\ContactToDb\Model\ContactFactory
+     */
+    private $contactFactory;
+
+    /**
+     * Edit constructor.
      * @param \Magento\Backend\App\Action\Context $context
      * @param \Magento\Framework\Registry $coreRegistry
      * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
+     * @param \Xigen\ContactToDb\Model\ContactFactory $contactFactory
      */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\Registry $coreRegistry,
-        \Magento\Framework\View\Result\PageFactory $resultPageFactory
+        \Magento\Framework\View\Result\PageFactory $resultPageFactory,
+        \Xigen\ContactToDb\Model\ContactFactory $contactFactory
     ) {
         $this->resultPageFactory = $resultPageFactory;
+        $this->contactFactory = $contactFactory;
         parent::__construct($context, $coreRegistry);
     }
 
@@ -32,10 +44,7 @@ class Edit extends \Xigen\ContactToDb\Controller\Adminhtml\Contact
     {
         // 1. Get ID and create model
         $id = $this->getRequest()->getParam('contact_id');
-        /**
-         *  class
-         */
-        $model = $this->_objectManager->create(\Xigen\ContactToDb\Model\Contact::class);
+        $model = $this->contactFactory->create();
         
         // 2. Initial checking
         if ($id) {

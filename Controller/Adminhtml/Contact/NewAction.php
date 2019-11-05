@@ -7,6 +7,9 @@ namespace Xigen\ContactToDb\Controller\Adminhtml\Contact;
  */
 class NewAction extends \Xigen\ContactToDb\Controller\Adminhtml\Contact
 {
+    /**
+     * @var \Magento\Backend\Model\View\Result\ForwardFactory
+     */
     protected $resultForwardFactory;
 
     /**
