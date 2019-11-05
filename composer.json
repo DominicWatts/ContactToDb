@@ -1,0 +1,22 @@
+{
+    "name": "dominicwatts/contacttodb",
+    "description": "",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "email": "xigen.dominic@gmail.com",
+            "name": "Dominic Xigen"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Xigen\\ContactToDb\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}
