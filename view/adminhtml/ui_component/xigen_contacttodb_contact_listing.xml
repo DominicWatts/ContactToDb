@@ -14,21 +14,27 @@
             <button name="add">
                 <url path="*/*/new"/>
                 <class>primary</class>
-                <label translate="true">Add new Contact</label>
+                <label translate="true">Add New Site Contact</label>
             </button>
         </buttons>
     </settings>
-    <dataSource component="Magento_Ui/js/grid/provider" name="xigen_contacttodb_contact_listing_data_source">
-        <settings>
-            <updateUrl path="mui/index/render"/>
-        </settings>
+    <dataSource name="xigen_contacttodb_contact_listing_data_source">
         <aclResource>Xigen_ContactToDb::Contact</aclResource>
-        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="xigen_contacttodb_contact_listing_data_source">
-            <settings>
-                <requestFieldName>id</requestFieldName>
-                <primaryFieldName>contact_id</primaryFieldName>
-            </settings>
-        </dataProvider>
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
+            <argument name="name" xsi:type="string">xigen_contacttodb_contact_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">contact_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" path="mui/index/render" xsi:type="url"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">contact_id</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
     </dataSource>
     <listingToolbar name="listing_top">
         <settings>
@@ -37,6 +43,26 @@
         <bookmark name="bookmarks"/>
         <columnsControls name="columns_controls"/>
         <filters name="listing_filters"/>
+		<massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">xigen_contacttodb_contact_listing.xigen_contacttodb_contact_listing.xigen_contacttodb_contact_columns.ids</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
+                    <item name="indexField" xsi:type="string">contact_id</item>
+                </item>
+            </argument>
+            <action name="delete">
+                <settings>
+                    <confirm>
+                        <message translate="true">Are you sure you want to delete the contact entries?</message>
+                        <title translate="true">Delete items</title>
+                    </confirm>
+                    <url path="*/*/massDelete"/>
+                    <type>delete</type>
+                    <label translate="true">Delete</label>
+                </settings>
+            </action>
+		</massaction>
         <paging name="listing_paging"/>
     </listingToolbar>
     <columns name="xigen_contacttodb_contact_columns">
@@ -101,16 +127,6 @@
             <settings>
                 <filter>text</filter>
                 <label translate="true">Telephone</label>
-                <editor>
-                    <editorType>text</editorType>
-                    <validation>
-                        <rule name="required-entry" xsi:type="boolean">false</rule>
-                    </validation>
-                </editor>
-            </settings>
-        </column>
-        <column name="comment">
-            <settings>
                 <editor>
                     <editorType>text</editorType>
                     <validation>

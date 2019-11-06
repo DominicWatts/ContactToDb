@@ -20,7 +20,7 @@ class MassDelete extends \Magento\Backend\App\Action
     private $contactFactory;
 
     /**
-     * assDelete constructor
+     * massDelete constructor
      * @param \Magento\Backend\App\Action\Context $context
      * @param \Magento\Ui\Component\MassAction\Filter $filter
      * @param \Xigen\ContactToDb\Model\ResourceModel\Contact\CollectionFactory $collectionFactory
@@ -29,13 +29,14 @@ class MassDelete extends \Magento\Backend\App\Action
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Ui\Component\MassAction\Filter $filter,
-        \Xigen\Contact\Model\ResourceModel\Contact\CollectionFactory $collectionFactory,
-        \Xigen\Contact\Model\ContactFactory $contactFactory
+        \Xigen\ContactToDb\Model\ResourceModel\Contact\CollectionFactory $collectionFactory,
+        \Xigen\ContactToDb\Model\ContactFactory $contactFactory
     ) {
         $this->filter = $filter;
         $this->contactFactory = $contactFactory;
         parent::__construct($context);
     }
+
     /**
      * Execute action.
      * @return \Magento\Backend\Model\View\Result\Redirect

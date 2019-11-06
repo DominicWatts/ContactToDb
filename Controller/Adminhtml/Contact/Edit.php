@@ -62,8 +62,8 @@ class Edit extends \Xigen\ContactToDb\Controller\Adminhtml\Contact
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
         $this->initPage($resultPage)->addBreadcrumb(
-            $id ? __('Edit Contact') : __('New Contact'),
-            $id ? __('Edit Contact') : __('New Contact')
+            $id ? __('Edit Contact') : __('New Site Contact'),
+            $id ? __('Edit Contact') : __('New Site Contact')
         );
         $resultPage->getConfig()->getTitle()->prepend(__('Contacts'));
         $resultPage->getConfig()->getTitle()->prepend($model->getId() ? __('Edit Contact %1', $model->getId()) : __('New Contact'));
