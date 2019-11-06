@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Xigen\ContactToDb\Api\Data;
 
 interface ContactSearchResultsInterface extends \Magento\Framework\Api\SearchResultsInterface

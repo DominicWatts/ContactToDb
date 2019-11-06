@@ -1,13 +1,14 @@
 <?php
 
-
 namespace Xigen\ContactToDb\Block\Adminhtml\Contact\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
+/**
+ * SaveButton class
+ */
 class SaveButton extends GenericButton implements ButtonProviderInterface
 {
-
     /**
      * @return array
      */
