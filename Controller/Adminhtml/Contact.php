@@ -1,12 +1,17 @@
 <?php
 
-
 namespace Xigen\ContactToDb\Controller\Adminhtml;
 
+/**
+ * Contact class
+ */
 abstract class Contact extends \Magento\Backend\App\Action
 {
-
     const ADMIN_RESOURCE = 'Xigen_ContactToDb::top_level';
+
+    /**
+     * @var \Magento\Framework\Registry
+     */
     protected $_coreRegistry;
 
     /**

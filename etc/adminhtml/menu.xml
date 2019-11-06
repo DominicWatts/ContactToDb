@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
-	<menu>
-		<add id="Xigen::top_level" module="Xigen_ContactToDb" resource="Magento_Backend::content" sortOrder="9999" title="Xigen"/>
-		<add action="xigen_contacttodb/contact/index" id="Xigen_ContactToDb::xigen_contacttodb_contact" module="Xigen_ContactToDb" parent="Xigen::top_level" resource="Magento_Backend::content" sortOrder="9999" title="Contact"/>
-	</menu>
+    <menu>
+        <add id="Xigen_ContactToDb::Contact" title="Site Contact" module="Xigen_ContactToDb" sortOrder="50" resource="Xigen_ContactToDb::contact" parent="Magento_Backend::marketing"/>
+        <add action="xigen_contacttodb/contact/index" id="Xigen_ContactToDb::xigen_contacttodb_contact" module="Xigen_ContactToDb" parent="Xigen_ContactToDb::Contact" resource="Magento_Backend::content" sortOrder="10" title="Manage"/>
+    </menu>
 </config>

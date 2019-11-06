@@ -1,47 +1,81 @@
 <?php
 
-
 namespace Xigen\ContactToDb\Model;
 
-use Xigen\ContactToDb\Api\Data\ContactSearchResultsInterfaceFactory;
-use Xigen\ContactToDb\Api\Data\ContactInterfaceFactory;
-use Xigen\ContactToDb\Model\ResourceModel\Contact as ResourceContact;
-use Magento\Framework\Api\ExtensionAttribute\JoinProcessorInterface;
-use Magento\Framework\Exception\CouldNotSaveException;
-use Xigen\ContactToDb\Model\ResourceModel\Contact\CollectionFactory as ContactCollectionFactory;
-use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\Api\DataObjectHelper;
-use Xigen\ContactToDb\Api\ContactRepositoryInterface;
+use Magento\Framework\Api\ExtensibleDataObjectConverter;
+use Magento\Framework\Api\ExtensionAttribute\JoinProcessorInterface;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Exception\CouldNotDeleteException;
-use Magento\Framework\Reflection\DataObjectProcessor;
-use Magento\Framework\Api\ExtensibleDataObjectConverter;
+use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\Reflection\DataObjectProcessor;
+use Magento\Store\Model\StoreManagerInterface;
+use Xigen\ContactToDb\Api\ContactRepositoryInterface;
+use Xigen\ContactToDb\Api\Data\ContactInterfaceFactory;
+use Xigen\ContactToDb\Api\Data\ContactSearchResultsInterfaceFactory;
+use Xigen\ContactToDb\Model\ResourceModel\Contact as ResourceContact;
+use Xigen\ContactToDb\Model\ResourceModel\Contact\CollectionFactory as ContactCollectionFactory;
 
+/**
+ * ContactRepository class
+ */
 class ContactRepository implements ContactRepositoryInterface
 {
-
+    /**
+     * @var DataObjectHelper
+     */
     protected $dataObjectHelper;
 
+    /**
+     * @var StoreManagerInterface
+     */
     private $storeManager;
 
+    /**
+     * @var ContactSearchResultsInterfaceFactory
+     */
     protected $searchResultsFactory;
 
+    /**
+     * @var DataObjectProcessor
+     */
     protected $dataObjectProcessor;
 
+    /**
+     * @var JoinProcessorInterface
+     */
     protected $extensionAttributesJoinProcessor;
 
+    /**
+     * @var CollectionProcessorInterface
+     */
     private $collectionProcessor;
 
+    /**
+     * @var ExtensibleDataObjectConverter
+     */
     protected $extensibleDataObjectConverter;
+
+    /**
+     * @var ResourceContact
+     */
     protected $resource;
 
+    /**
+     * @var ContactInterfaceFactory
+     */
     protected $dataContactFactory;
 
+    /**
+     * @var ContactCollectionFactory
+     */
     protected $contactCollectionFactory;
 
+    /**
+     * @var ContactFactory
+     */
     protected $contactFactory;
-
 
     /**
      * @param ResourceContact $resource
@@ -88,11 +122,6 @@ class ContactRepository implements ContactRepositoryInterface
     public function save(
         \Xigen\ContactToDb\Api\Data\ContactInterface $contact
     ) {
-        /* if (empty($contact->getStoreId())) {
-            $storeId = $this->storeManager->getStore()->getId();
-            $contact->setStoreId($storeId);
-        } */
-        
         $contactData = $this->extensibleDataObjectConverter->toNestedArray(
             $contact,
             [],

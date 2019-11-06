@@ -1,16 +1,19 @@
 <?php
 
-
 namespace Xigen\ContactToDb\Controller\Adminhtml\Contact;
 
+/**
+ * Index class
+ */
 class Index extends \Magento\Backend\App\Action
 {
-
+    /**
+     * @var \Magento\Framework\View\Result\PageFactory
+     */
     protected $resultPageFactory;
 
     /**
-     * Constructor
-     *
+     * Index constructor.
      * @param \Magento\Backend\App\Action\Context $context
      * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
      */
@@ -30,7 +33,7 @@ class Index extends \Magento\Backend\App\Action
     public function execute()
     {
         $resultPage = $this->resultPageFactory->create();
-            $resultPage->getConfig()->getTitle()->prepend(__("Contact"));
-            return $resultPage;
+        $resultPage->getConfig()->getTitle()->prepend(__("Contact"));
+        return $resultPage;
     }
 }

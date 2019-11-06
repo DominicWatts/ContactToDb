@@ -1,16 +1,26 @@
 {
     "name": "dominicwatts/contacttodb",
-    "description": "",
+    "description": "Magento 2 plugin to store contact us form submission to database",
     "type": "magento2-module",
+    "version": "1.0.0",
     "license": "proprietary",
     "authors": [
         {
-            "email": "xigen.dominic@gmail.com",
+            "email": "dominic@xigen.co.uk",
             "name": "Dominic Xigen"
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.magento.com/"
+        }
+    ],
+    "require": {
+        "magento/framework": "*",
+        "php": "~7.0.0||~7.1.0||~7.2.0||~7.3.0"
+    },
     "autoload": {
         "psr-4": {
             "Xigen\\ContactToDb\\": ""

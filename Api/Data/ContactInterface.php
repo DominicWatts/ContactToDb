@@ -1,16 +1,16 @@
 <?php
 
-
 namespace Xigen\ContactToDb\Api\Data;
 
 interface ContactInterface extends \Magento\Framework\Api\ExtensibleDataInterface
 {
-
     const EMAIL = 'email';
-    const TELEPHONE = 'telephone';
     const NAME = 'name';
-    const COMMENT = 'comment';
+    const UPDATED_AT = 'updated_at';
     const CONTACT_ID = 'contact_id';
+    const CREATED_AT = 'created_at';
+    const TELEPHONE = 'telephone';
+    const COMMENT = 'comment';
 
     /**
      * Get contact_id
@@ -50,7 +50,7 @@ interface ContactInterface extends \Magento\Framework\Api\ExtensibleDataInterfac
      * @return $this
      */
     public function setExtensionAttributes(
-        \Xigen\ContactToDb\Api\Data\ContactExtensionInterface $extensionAttributes
+        ContactExtensionInterface $extensionAttributes
     );
 
     /**
@@ -91,4 +91,30 @@ interface ContactInterface extends \Magento\Framework\Api\ExtensibleDataInterfac
      * @return \Xigen\ContactToDb\Api\Data\ContactInterface
      */
     public function setComment($comment);
+
+    /**
+     * Get created_at
+     * @return string|null
+     */
+    public function getCreatedAt();
+
+    /**
+     * Set created_at
+     * @param string $createdAt
+     * @return \Xigen\ContactToDb\Api\Data\ContactInterface
+     */
+    public function setCreatedAt($createdAt);
+
+    /**
+     * Get updated_at
+     * @return string|null
+     */
+    public function getUpdatedAt();
+
+    /**
+     * Set updated_at
+     * @param string $updatedAt
+     * @return \Xigen\ContactToDb\Api\Data\ContactInterface
+     */
+    public function setUpdatedAt($updatedAt);
 }
