@@ -7,9 +7,9 @@ namespace Xigen\ContactToDb\Controller\Adminhtml\Contact;
  */
 class Delete extends \Xigen\ContactToDb\Controller\Adminhtml\Contact
 {
-   /**
-    * @var \Magento\Framework\View\Result\PageFactory
-    */
+    /**
+     * @var \Magento\Framework\View\Result\PageFactory
+     */
     private $resultPageFactory;
 
     /**

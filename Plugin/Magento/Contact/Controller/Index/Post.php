@@ -42,16 +42,14 @@ class Post
      * afterExecute method
      * @param \Magento\Contact\Controller\Index\Post $subject
      * @param \Magento\Framework\Controller\Result\Redirect\Interceptor $result
-     * @return \Magento\Framework\Controller\Result\Redirect\Interceptor
      * @throws \Exception
+     * @return \Magento\Framework\Controller\Result\Redirect\Interceptor
      */
     public function afterExecute(
         \Magento\Contact\Controller\Index\Post $subject,
         $result
     ) {
-
         if ($request = $subject->getRequest()) {
-
             if (!$this->validatedParams($request)) {
                 return $result;
             }
@@ -70,7 +68,6 @@ class Post
             } catch (\Exception $e) {
                 $this->logger->critical($e);
             }
-
         }
 
         return $result;
@@ -79,8 +76,8 @@ class Post
     /**
      * Server side validation - only store valid data
      * @param Magento\Framework\App\Request\Http $request
-     * @return array
      * @throws \Exception
+     * @return array
      */
     private function validatedParams($request)
     {
