@@ -61,6 +61,22 @@ class InstallSchema implements InstallSchemaInterface
             'Comment'
         );
 
+        $table_xigen_contacttodb_contact->addColumn(
+            'created_at',
+            \Magento\Framework\DB\Ddl\Table::TYPE_DATETIME,
+            null,
+            [],
+            'Created At'
+        );
+
+        $table_xigen_contacttodb_contact->addColumn(
+            'updated_at',
+            \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
+            null,
+            [],
+            'Updated At'
+        );
+
         $setup->getConnection()->createTable($table_xigen_contacttodb_contact);
     }
 }

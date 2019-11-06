@@ -124,4 +124,42 @@ class Contact extends \Magento\Framework\Api\AbstractExtensibleObject implements
     {
         return $this->setData(self::COMMENT, $comment);
     }
+
+    /**
+     * Get created_at
+     * @return string|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->_get(self::CREATED_AT);
+    }
+
+    /**
+     * Set created_at
+     * @param string $createdAt
+     * @return \Xigen\ContactToDb\Api\Data\ContactInterface
+     */
+    public function setCreatedAt($createdAt)
+    {
+        return $this->setData(self::CREATED_AT, $createdAt);
+    }
+
+    /**
+     * Get updated_at
+     * @return string|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->_get(self::UPDATED_AT);
+    }
+
+    /**
+     * Set updated_at
+     * @param string $updatedAt
+     * @return \Xigen\ContactToDb\Api\Data\ContactInterface
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        return $this->setData(self::UPDATED_AT, $updatedAt);
+    }
 }

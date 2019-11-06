@@ -27,12 +27,18 @@ class Contact extends \Magento\Framework\Model\AbstractModel
     protected $contactDataFactory;
 
     /**
+     * @var \Magento\Framework\Stdlib\DateTime\DateTime
+     */
+    private $dateTime;
+
+    /**
      * @param \Magento\Framework\Model\Context $context
      * @param \Magento\Framework\Registry $registry
      * @param ContactInterfaceFactory $contactDataFactory
      * @param DataObjectHelper $dataObjectHelper
      * @param \Xigen\ContactToDb\Model\ResourceModel\Contact $resource
      * @param \Xigen\ContactToDb\Model\ResourceModel\Contact\Collection $resourceCollection
+     * @param \Magento\Framework\Stdlib\DateTime\DateTime $dateTime,
      * @param array $data
      */
     public function __construct(
@@ -42,11 +48,25 @@ class Contact extends \Magento\Framework\Model\AbstractModel
         DataObjectHelper $dataObjectHelper,
         ResourceModel\Contact $resource,
         ResourceModel\Contact\Collection $resourceCollection,
+        \Magento\Framework\Stdlib\DateTime\DateTime $dateTime,
         array $data = []
     ) {
         $this->contactDataFactory = $contactDataFactory;
         $this->dataObjectHelper = $dataObjectHelper;
+        $this->dateTime = $dateTime;
         parent::__construct($context, $registry, $resource, $resourceCollection, $data);
+    }
+
+    /**
+     * Before save
+     */
+    public function beforeSave()
+    {
+        $this->setUpdatedAt($this->dateTime->gmtDate());
+        if ($this->isObjectNew()) {
+            $this->setCreatedAt($this->dateTime->gmtDate());
+        }
+        return parent::beforeSave();
     }
 
     /**

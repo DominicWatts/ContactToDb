@@ -135,6 +135,18 @@
                 </editor>
             </settings>
         </column>
+        <column name="created_at">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Created At</label>
+            </settings>
+        </column>
+        <column name="updated_at">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Updated At</label>
+            </settings>
+        </column>
         <actionsColumn class="Xigen\ContactToDb\Ui\Component\Listing\Column\ContactActions" name="actions">
             <settings>
                 <indexField>contact_id</indexField>
